@@ -1,0 +1,13 @@
+#include <bits/stdc++.h> 
+int uniquePaths(int m, int n) {
+	// Write your code here.
+  //To reach from top left corner to bottom right corner e have to traverse rows-1 steps in right and cols-1 steps in bottom ...to reach 
+  //To find no.of ways/no.of paths we have to fix either bottom paths/right paths ...i.e. no.of ways of choosing row-1 steps/col-1 steps from total
+	int totalpaths=m+n-2;
+	int r=m-1;
+	double res=1;
+	for(int i=1;i<=r;i++){
+		res=res*(totalpaths-r+i)/i;
+	}
+	return (int)res;
+}
