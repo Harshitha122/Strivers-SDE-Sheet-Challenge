@@ -1,0 +1,38 @@
+
+vector<int> getPostOrderTraversal(TreeNode *root)
+{
+    // Create answer array to store traversal.
+    vector<int> answer;
+
+    // Base case.
+    if (root == NULL)
+    {
+        return answer;
+    }
+
+    // Create an empty stack.
+    stack<TreeNode *> s;
+    TreeNode *current = root;
+    s.push(current);
+    while (!s.empty())
+    {
+        current = s.top();
+        s.pop();
+        answer.push_back(current->data);
+
+        if (current->left)
+        {
+            s.push(current->left);
+        }
+        if (current->right)
+        {
+            s.push(current->right);
+        }
+    }
+
+    // Reverse all elements of 'ANSWER' array.
+    reverse(answer.begin(), answer.end());
+
+    // Return answer.
+    return answer;
+}
